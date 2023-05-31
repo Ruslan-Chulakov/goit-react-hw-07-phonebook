@@ -58,3 +58,17 @@
 
     border-radius: 30px;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+   
+}
+
+.error {
+    list-style: none;
+    text-align: center;
+    color: #bf1c2d;
+}

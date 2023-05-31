@@ -1,13 +1,20 @@
 import clsx from 'clsx';
-import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getContacts} from 'redux/selectors';
+import { fetchContacts } from 'redux/operations';
 import ContactForm from "./ContactForm";
 import ContactList from "./ContactList";
 import Filter from './Filter';
 import css from './App.module.css';
 
 export const App = () => {
-  const contacts = useSelector(getContacts)
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts())
+  },[dispatch])
   
   return (
     <div className={clsx(css.container)}>

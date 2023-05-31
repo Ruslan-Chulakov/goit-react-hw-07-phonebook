@@ -1,9 +1,8 @@
-import { nanoid } from 'nanoid';
 import clsx from 'clsx';
 import { Notify } from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 import css from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -27,7 +26,7 @@ const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact({ id: nanoid(4), name, number }));
+    dispatch(addContact({ name, number }));
 
     evt.target.reset();
   };
